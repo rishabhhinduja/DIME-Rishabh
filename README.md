@@ -1,9 +1,11 @@
 # DIME
+
 Design and Development of a Data-Driven Idea Exploration and Market Analysis Platform
+
 # DIME – Data-Driven Idea & Market Evaluation Platform
 
 > **Master Technical & Product Document — v1.0 MVP**
-> *Single source of truth for building DIME. Use this in any vibe-coding or AI-assisted IDE (Cursor, Windsurf, Antigravity, GitHub Copilot Agents) to scaffold and develop the platform.*
+> _Single source of truth for building DIME. Use this in any vibe-coding or AI-assisted IDE (Cursor, Windsurf, Antigravity, GitHub Copilot Agents) to scaffold and develop the platform._
 
 ---
 
@@ -55,33 +57,35 @@ Engineers and students regularly build products that fail — not because of poo
 
 DIME analyzes a software idea submitted by the user and generates structured insights across five key dimensions:
 
-| Dimension | What It Measures | Data Source |
-|---|---|---|
-| Novelty Index | How unique the idea is compared to existing projects | GitHub repos, App Store data |
-| Market Saturation | Competitor density across relevant domains | App review datasets, market surveys |
-| Feasibility Score | Technical, team, legal, and capital feasibility | Developer survey datasets |
-| Opportunity Score | Unexplored market gaps worth pursuing | Trend datasets, complaint clusters |
-| Risk Indicator | Overall risk level based on all dimensions | Composite score |
+| Dimension         | What It Measures                                     | Data Source                         |
+| ----------------- | ---------------------------------------------------- | ----------------------------------- |
+| Novelty Index     | How unique the idea is compared to existing projects | GitHub repos, App Store data        |
+| Market Saturation | Competitor density across relevant domains           | App review datasets, market surveys |
+| Feasibility Score | Technical, team, legal, and capital feasibility      | Developer survey datasets           |
+| Opportunity Score | Unexplored market gaps worth pursuing                | Trend datasets, complaint clusters  |
+| Risk Indicator    | Overall risk level based on all dimensions           | Composite score                     |
 
 ### 1.3 Target Users
 
-| User Type | Profile | Primary Use Case |
-|---|---|---|
-| Engineering Students | Final year / hackathon participants | Validate project ideas for college submissions |
-| Indie Developers | Solo devs, freelancers | Market-validate a side project before building |
-| Startup Founders | Early-stage, pre-seed | Data-backed pitch preparation and pivot decisions |
-| Product Managers | Mid-level PMs at startups | Competitive landscape research |
-| Tech Researchers | Academic / industry researchers | Market trend and opportunity analysis |
+| User Type            | Profile                             | Primary Use Case                                  |
+| -------------------- | ----------------------------------- | ------------------------------------------------- |
+| Engineering Students | Final year / hackathon participants | Validate project ideas for college submissions    |
+| Indie Developers     | Solo devs, freelancers              | Market-validate a side project before building    |
+| Startup Founders     | Early-stage, pre-seed               | Data-backed pitch preparation and pivot decisions |
+| Product Managers     | Mid-level PMs at startups           | Competitive landscape research                    |
+| Tech Researchers     | Academic / industry researchers     | Market trend and opportunity analysis             |
 
 ### 1.4 Product Goals
 
 **Primary Goals**
+
 1. Provide a structured idea validation workflow from input to visual insights
 2. Offer interactive analytics dashboards driven by real datasets
 3. Help users identify market opportunities before coding begins
 4. Enable users to organise, track, and compare multiple ideas in one workspace
 
 **Secondary Goals**
+
 1. Serve as an educational tool to teach data-driven product thinking
 2. Function as a hackathon ideation assistant
 3. Build intuition for market research through visual exploration
@@ -117,14 +121,14 @@ DIME follows a layered, decoupled architecture. The frontend and backend are ind
 └─────────────────────────────────────────────────────┘
 ```
 
-| Layer | Responsibility | Technology |
-|---|---|---|
-| Presentation Layer | React dashboard UI, routing, state management, chart rendering | React + TypeScript |
-| API Gateway Layer | REST API endpoints, auth middleware, request validation | Node.js + Express |
-| Business Logic Layer | Idea analysis orchestration, score computation, data aggregation | Node.js services |
-| ML / Data Processing Layer | Dataset preprocessing, NLP on reviews, scoring algorithms | Python + Pandas + Scikit-learn |
-| Data Storage Layer | User data, idea records, analysis results, dataset metadata | PostgreSQL + Redis (cache) |
-| Static Assets | UI assets, dataset previews, generated icons | Vercel CDN / S3 |
+| Layer                      | Responsibility                                                   | Technology                     |
+| -------------------------- | ---------------------------------------------------------------- | ------------------------------ |
+| Presentation Layer         | React dashboard UI, routing, state management, chart rendering   | React + TypeScript             |
+| API Gateway Layer          | REST API endpoints, auth middleware, request validation          | Node.js + Express              |
+| Business Logic Layer       | Idea analysis orchestration, score computation, data aggregation | Node.js services               |
+| ML / Data Processing Layer | Dataset preprocessing, NLP on reviews, scoring algorithms        | Python + Pandas + Scikit-learn |
+| Data Storage Layer         | User data, idea records, analysis results, dataset metadata      | PostgreSQL + Redis (cache)     |
+| Static Assets              | UI assets, dataset previews, generated icons                     | Vercel CDN / S3                |
 
 ### 2.2 Data Flow
 
@@ -164,12 +168,12 @@ Measures how crowded the chosen market segment is.
 
 Multi-dimensional feasibility scored across four pillars:
 
-| Pillar | Weight | How It Is Scored |
-|---|---|---|
-| Technology Readiness | 35% | Cross-referenced against tech stack familiarity input |
-| Team Capacity | 25% | Based on team size vs project complexity estimate |
-| Capital Requirements | 20% | Estimated based on domain and timeline |
-| Legal & Compliance | 20% | Hardcoded risk levels per domain (e.g., HealthTech = high) |
+| Pillar               | Weight | How It Is Scored                                           |
+| -------------------- | ------ | ---------------------------------------------------------- |
+| Technology Readiness | 35%    | Cross-referenced against tech stack familiarity input      |
+| Team Capacity        | 25%    | Based on team size vs project complexity estimate          |
+| Capital Requirements | 20%    | Estimated based on domain and timeline                     |
+| Legal & Compliance   | 20%    | Hardcoded risk levels per domain (e.g., HealthTech = high) |
 
 #### Opportunity Score
 
@@ -195,62 +199,62 @@ Risk = (Saturation × 0.3) + (1 - Feasibility) × 0.4 + (1 - Novelty) × 0.3
 
 ### 3.1 Frontend Stack
 
-| Technology | Version / Notes | Purpose |
-|---|---|---|
-| React | v18+ | Core UI library |
-| TypeScript | v5+ | Type safety, better IDE autocomplete |
-| Tailwind CSS | v3+ | Utility-first styling — fast UI development |
-| React Router | v6 | Client-side page routing |
-| Recharts | v2+ | Line, bar, radar charts — React-native, responsive |
-| Chart.js + react-chartjs-2 | v4 | Additional chart types (bubble/scatter for Opportunity Matrix) |
-| Zustand | v4 | Lightweight global state management |
-| Lucide React | Latest | Minimal outline icon set |
-| Shadcn/ui | Latest | Pre-built accessible UI primitives |
-| Framer Motion | v10+ (Phase 4) | Animations — add after MVP is stable |
+| Technology                 | Version / Notes | Purpose                                                        |
+| -------------------------- | --------------- | -------------------------------------------------------------- |
+| React                      | v18+            | Core UI library                                                |
+| TypeScript                 | v5+             | Type safety, better IDE autocomplete                           |
+| Tailwind CSS               | v3+             | Utility-first styling — fast UI development                    |
+| React Router               | v6              | Client-side page routing                                       |
+| Recharts                   | v2+             | Line, bar, radar charts — React-native, responsive             |
+| Chart.js + react-chartjs-2 | v4              | Additional chart types (bubble/scatter for Opportunity Matrix) |
+| Zustand                    | v4              | Lightweight global state management                            |
+| Lucide React               | Latest          | Minimal outline icon set                                       |
+| Shadcn/ui                  | Latest          | Pre-built accessible UI primitives                             |
+| Framer Motion              | v10+ (Phase 4)  | Animations — add after MVP is stable                           |
 
 ### 3.2 Backend Stack
 
-| Technology | Version / Notes | Purpose |
-|---|---|---|
-| Node.js | v20 LTS | Runtime for API server |
-| Express.js | v4 | HTTP server and routing |
-| Zod | v3 | Runtime schema validation for API inputs |
-| JWT (jsonwebtoken) | v9 | Stateless authentication tokens |
-| bcryptjs | v2 | Password hashing |
-| Axios | v1 | HTTP client for internal service calls |
-| dotenv | v16 | Environment variable management |
-| cors | v2 | CORS middleware |
-| helmet | v7 | Security headers |
+| Technology         | Version / Notes | Purpose                                  |
+| ------------------ | --------------- | ---------------------------------------- |
+| Node.js            | v20 LTS         | Runtime for API server                   |
+| Express.js         | v4              | HTTP server and routing                  |
+| Zod                | v3              | Runtime schema validation for API inputs |
+| JWT (jsonwebtoken) | v9              | Stateless authentication tokens          |
+| bcryptjs           | v2              | Password hashing                         |
+| Axios              | v1              | HTTP client for internal service calls   |
+| dotenv             | v16             | Environment variable management          |
+| cors               | v2              | CORS middleware                          |
+| helmet             | v7              | Security headers                         |
 
 ### 3.3 Data / ML Stack (Python)
 
-| Technology | Version / Notes | Purpose |
-|---|---|---|
-| Python | 3.11+ | Runtime for ML processing |
-| FastAPI | v0.110+ | Lightweight API wrapper for ML service |
-| Pandas | v2+ | Dataset loading and manipulation |
-| Scikit-learn | v1.4+ | TF-IDF, K-Means clustering, cosine similarity |
-| NumPy | v1.26+ | Numerical operations |
-| NLTK / spaCy | Latest | Text preprocessing, tokenisation, stopword removal |
-| Uvicorn | Latest | ASGI server to run FastAPI |
+| Technology   | Version / Notes | Purpose                                            |
+| ------------ | --------------- | -------------------------------------------------- |
+| Python       | 3.11+           | Runtime for ML processing                          |
+| FastAPI      | v0.110+         | Lightweight API wrapper for ML service             |
+| Pandas       | v2+             | Dataset loading and manipulation                   |
+| Scikit-learn | v1.4+           | TF-IDF, K-Means clustering, cosine similarity      |
+| NumPy        | v1.26+          | Numerical operations                               |
+| NLTK / spaCy | Latest          | Text preprocessing, tokenisation, stopword removal |
+| Uvicorn      | Latest          | ASGI server to run FastAPI                         |
 
 ### 3.4 Database
 
-| Technology | Purpose | Notes |
-|---|---|---|
-| PostgreSQL v16 | Primary relational database | Stores users, ideas, analysis results |
-| Redis v7 | Caching layer | Cache analysis results for 24h to avoid re-computation |
-| Prisma ORM | Database access from Node.js | Type-safe queries, migrations |
+| Technology     | Purpose                      | Notes                                                  |
+| -------------- | ---------------------------- | ------------------------------------------------------ |
+| PostgreSQL v16 | Primary relational database  | Stores users, ideas, analysis results                  |
+| Redis v7       | Caching layer                | Cache analysis results for 24h to avoid re-computation |
+| Prisma ORM     | Database access from Node.js | Type-safe queries, migrations                          |
 
 ### 3.5 Deployment & Infrastructure
 
-| Service | Purpose | Notes |
-|---|---|---|
-| Vercel | Frontend deployment | Auto CI/CD from GitHub, CDN, edge functions |
-| Railway / Render | Backend API deployment | Node.js + PostgreSQL hosting |
-| Fly.io / Modal | Python ML service deployment | Serverless GPU-optional Python containers |
-| GitHub Actions | CI/CD pipeline | Lint, test, deploy on merge to main |
-| Supabase (optional) | Managed PostgreSQL + Auth | Can replace custom auth for MVP speed |
+| Service             | Purpose                      | Notes                                       |
+| ------------------- | ---------------------------- | ------------------------------------------- |
+| Vercel              | Frontend deployment          | Auto CI/CD from GitHub, CDN, edge functions |
+| Railway / Render    | Backend API deployment       | Node.js + PostgreSQL hosting                |
+| Fly.io / Modal      | Python ML service deployment | Serverless GPU-optional Python containers   |
+| GitHub Actions      | CI/CD pipeline               | Lint, test, deploy on merge to main         |
+| Supabase (optional) | Managed PostgreSQL + Auth    | Can replace custom auth for MVP speed       |
 
 ---
 
@@ -260,66 +264,66 @@ Use Prisma migrations to manage schema evolution.
 
 ### 4.1 Users Table
 
-| Column | Type | Notes |
-|---|---|---|
-| id | UUID (PK) | Auto-generated primary key |
-| name | VARCHAR(100) | Display name |
-| email | VARCHAR(255) UNIQUE | Login email |
-| password_hash | TEXT | bcrypt hashed password |
-| avatar_url | TEXT | Profile image URL |
-| bio | TEXT | Short user bio |
-| role | VARCHAR(50) | e.g., Student, Developer, Founder |
-| skills | TEXT[] | Array of skill tags |
-| tech_stack | TEXT[] | Preferred technologies |
-| created_at | TIMESTAMP | Account creation time |
-| activity_streak | INTEGER | Consecutive active days |
+| Column          | Type                | Notes                             |
+| --------------- | ------------------- | --------------------------------- |
+| id              | UUID (PK)           | Auto-generated primary key        |
+| name            | VARCHAR(100)        | Display name                      |
+| email           | VARCHAR(255) UNIQUE | Login email                       |
+| password_hash   | TEXT                | bcrypt hashed password            |
+| avatar_url      | TEXT                | Profile image URL                 |
+| bio             | TEXT                | Short user bio                    |
+| role            | VARCHAR(50)         | e.g., Student, Developer, Founder |
+| skills          | TEXT[]              | Array of skill tags               |
+| tech_stack      | TEXT[]              | Preferred technologies            |
+| created_at      | TIMESTAMP           | Account creation time             |
+| activity_streak | INTEGER             | Consecutive active days           |
 
 ### 4.2 Ideas Table
 
-| Column | Type | Notes |
-|---|---|---|
-| id | UUID (PK) | |
-| user_id | UUID (FK → users) | Owner of the idea |
-| title | VARCHAR(200) | Idea title |
-| description | TEXT | Full idea description |
-| domain | VARCHAR(50) | e.g., AI/ML, SaaS, FinTech |
-| tech_familiarity | VARCHAR(20) | Beginner / Intermediate / Advanced |
-| team_size | INTEGER | Number of team members |
-| timeline_months | INTEGER | Expected build duration in months |
-| status | VARCHAR(20) | Draft / In Review / Validated |
-| created_at | TIMESTAMP | |
-| updated_at | TIMESTAMP | |
+| Column           | Type              | Notes                              |
+| ---------------- | ----------------- | ---------------------------------- |
+| id               | UUID (PK)         |                                    |
+| user_id          | UUID (FK → users) | Owner of the idea                  |
+| title            | VARCHAR(200)      | Idea title                         |
+| description      | TEXT              | Full idea description              |
+| domain           | VARCHAR(50)       | e.g., AI/ML, SaaS, FinTech         |
+| tech_familiarity | VARCHAR(20)       | Beginner / Intermediate / Advanced |
+| team_size        | INTEGER           | Number of team members             |
+| timeline_months  | INTEGER           | Expected build duration in months  |
+| status           | VARCHAR(20)       | Draft / In Review / Validated      |
+| created_at       | TIMESTAMP         |                                    |
+| updated_at       | TIMESTAMP         |                                    |
 
 ### 4.3 Analysis Results Table
 
-| Column | Type | Notes |
-|---|---|---|
-| id | UUID (PK) | |
-| idea_id | UUID (FK → ideas) | |
-| novelty_index | DECIMAL(5,2) | 0–100 |
-| market_saturation | DECIMAL(5,2) | 0–100 |
-| feasibility_score | DECIMAL(5,2) | 0–100 |
-| opportunity_score | DECIMAL(5,2) | 0–100 |
-| risk_level | VARCHAR(20) | Low / Moderate / High / Critical |
-| similar_projects | JSONB | Array of `{ name, url, similarity_pct }` |
-| market_trend_data | JSONB | Array of `{ month, value }` for line chart |
-| competitor_data | JSONB | Array of `{ sector, count }` for bar chart |
-| feasibility_breakdown | JSONB | `{ tech, team, capital, legal }` for radar chart |
-| analyst_verdict | TEXT | AI-generated summary text |
-| computed_at | TIMESTAMP | |
+| Column                | Type              | Notes                                            |
+| --------------------- | ----------------- | ------------------------------------------------ |
+| id                    | UUID (PK)         |                                                  |
+| idea_id               | UUID (FK → ideas) |                                                  |
+| novelty_index         | DECIMAL(5,2)      | 0–100                                            |
+| market_saturation     | DECIMAL(5,2)      | 0–100                                            |
+| feasibility_score     | DECIMAL(5,2)      | 0–100                                            |
+| opportunity_score     | DECIMAL(5,2)      | 0–100                                            |
+| risk_level            | VARCHAR(20)       | Low / Moderate / High / Critical                 |
+| similar_projects      | JSONB             | Array of `{ name, url, similarity_pct }`         |
+| market_trend_data     | JSONB             | Array of `{ month, value }` for line chart       |
+| competitor_data       | JSONB             | Array of `{ sector, count }` for bar chart       |
+| feasibility_breakdown | JSONB             | `{ tech, team, capital, legal }` for radar chart |
+| analyst_verdict       | TEXT              | AI-generated summary text                        |
+| computed_at           | TIMESTAMP         |                                                  |
 
 ### 4.4 Notes Table
 
-| Column | Type | Notes |
-|---|---|---|
-| id | UUID (PK) | |
-| user_id | UUID (FK → users) | |
-| idea_id | UUID (FK → ideas, nullable) | Optional link to an idea |
-| content | TEXT | Note body text |
-| tags | TEXT[] | User-defined tags |
-| color | VARCHAR(7) | Hex colour for sticky note card |
-| created_at | TIMESTAMP | |
-| updated_at | TIMESTAMP | |
+| Column     | Type                        | Notes                           |
+| ---------- | --------------------------- | ------------------------------- |
+| id         | UUID (PK)                   |                                 |
+| user_id    | UUID (FK → users)           |                                 |
+| idea_id    | UUID (FK → ideas, nullable) | Optional link to an idea        |
+| content    | TEXT                        | Note body text                  |
+| tags       | TEXT[]                      | User-defined tags               |
+| color      | VARCHAR(7)                  | Hex colour for sticky note card |
+| created_at | TIMESTAMP                   |                                 |
+| updated_at | TIMESTAMP                   |                                 |
 
 ### Prisma Schema Snippet
 
@@ -398,14 +402,15 @@ All API endpoints follow REST conventions.
 
 ### 5.1 Authentication Endpoints
 
-| Method + Path | Description | Auth Required |
-|---|---|---|
-| `POST /auth/register` | Register new user with name, email, password | No |
-| `POST /auth/login` | Login and receive JWT token | No |
-| `GET /auth/me` | Get current user profile from JWT | Yes |
-| `PUT /auth/me` | Update user profile (name, bio, skills, tech) | Yes |
+| Method + Path         | Description                                   | Auth Required |
+| --------------------- | --------------------------------------------- | ------------- |
+| `POST /auth/register` | Register new user with name, email, password  | No            |
+| `POST /auth/login`    | Login and receive JWT token                   | No            |
+| `GET /auth/me`        | Get current user profile from JWT             | Yes           |
+| `PUT /auth/me`        | Update user profile (name, bio, skills, tech) | Yes           |
 
 **Register Request Body:**
+
 ```json
 {
   "name": "Vivek Chaurasiya",
@@ -415,25 +420,31 @@ All API endpoints follow REST conventions.
 ```
 
 **Login Response:**
+
 ```json
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-  "user": { "id": "uuid", "name": "Vivek Chaurasiya", "email": "vivek@dime.dev" }
+  "user": {
+    "id": "uuid",
+    "name": "Vivek Chaurasiya",
+    "email": "vivek@dime.dev"
+  }
 }
 ```
 
 ### 5.2 Idea Endpoints
 
-| Method + Path | Description | Auth Required |
-|---|---|---|
-| `POST /ideas` | Create a new idea record | Yes |
-| `GET /ideas` | List all ideas for current user | Yes |
-| `GET /ideas/:id` | Get single idea by ID | Yes |
-| `PUT /ideas/:id` | Update idea details | Yes |
-| `DELETE /ideas/:id` | Delete idea and its analysis results | Yes |
-| `POST /ideas/:id/analyze` | Trigger analysis for an idea (calls ML service) | Yes |
+| Method + Path             | Description                                     | Auth Required |
+| ------------------------- | ----------------------------------------------- | ------------- |
+| `POST /ideas`             | Create a new idea record                        | Yes           |
+| `GET /ideas`              | List all ideas for current user                 | Yes           |
+| `GET /ideas/:id`          | Get single idea by ID                           | Yes           |
+| `PUT /ideas/:id`          | Update idea details                             | Yes           |
+| `DELETE /ideas/:id`       | Delete idea and its analysis results            | Yes           |
+| `POST /ideas/:id/analyze` | Trigger analysis for an idea (calls ML service) | Yes           |
 
 **Create Idea Request Body:**
+
 ```json
 {
   "title": "AI Code Review Bot",
@@ -447,12 +458,13 @@ All API endpoints follow REST conventions.
 
 ### 5.3 Analysis Endpoints
 
-| Method + Path | Description | Auth Required |
-|---|---|---|
-| `GET /analysis/:idea_id` | Retrieve latest analysis result for an idea | Yes |
-| `GET /analysis/:idea_id/history` | Get all previous analyses for an idea | Yes |
+| Method + Path                    | Description                                 | Auth Required |
+| -------------------------------- | ------------------------------------------- | ------------- |
+| `GET /analysis/:idea_id`         | Retrieve latest analysis result for an idea | Yes           |
+| `GET /analysis/:idea_id/history` | Get all previous analyses for an idea       | Yes           |
 
 **Analysis Response Shape:**
+
 ```json
 {
   "id": "uuid",
@@ -463,15 +475,26 @@ All API endpoints follow REST conventions.
   "opportunity_score": 91.0,
   "risk_level": "Low",
   "similar_projects": [
-    { "name": "Sourcegraph", "url": "https://sourcegraph.com", "similarity_pct": 62 }
+    {
+      "name": "Sourcegraph",
+      "url": "https://sourcegraph.com",
+      "similarity_pct": 62
+    }
   ],
   "market_trend_data": [
-    { "month": "Jan", "value": 42 }, { "month": "Feb", "value": 48 }
+    { "month": "Jan", "value": 42 },
+    { "month": "Feb", "value": 48 }
   ],
   "competitor_data": [
-    { "sector": "SaaS", "count": 45 }, { "sector": "AI", "count": 67 }
+    { "sector": "SaaS", "count": 45 },
+    { "sector": "AI", "count": 67 }
   ],
-  "feasibility_breakdown": { "tech": 85, "team": 70, "capital": 60, "legal": 75 },
+  "feasibility_breakdown": {
+    "tech": 85,
+    "team": 70,
+    "capital": 60,
+    "legal": 75
+  },
   "analyst_verdict": "Your idea shows strong differentiation in execution logic...",
   "computed_at": "2026-03-17T10:00:00Z"
 }
@@ -479,19 +502,19 @@ All API endpoints follow REST conventions.
 
 ### 5.4 Dataset Endpoints
 
-| Method + Path | Description | Auth Required |
-|---|---|---|
-| `GET /datasets` | List all available datasets with metadata | Yes |
-| `GET /datasets/:id/preview` | Get first 20 records from a dataset | Yes |
+| Method + Path               | Description                               | Auth Required |
+| --------------------------- | ----------------------------------------- | ------------- |
+| `GET /datasets`             | List all available datasets with metadata | Yes           |
+| `GET /datasets/:id/preview` | Get first 20 records from a dataset       | Yes           |
 
 ### 5.5 Notes Endpoints
 
-| Method + Path | Description | Auth Required |
-|---|---|---|
-| `GET /notes` | List all notes for current user | Yes |
-| `POST /notes` | Create a new note | Yes |
-| `PUT /notes/:id` | Edit a note | Yes |
-| `DELETE /notes/:id` | Delete a note | Yes |
+| Method + Path       | Description                     | Auth Required |
+| ------------------- | ------------------------------- | ------------- |
+| `GET /notes`        | List all notes for current user | Yes           |
+| `POST /notes`       | Create a new note               | Yes           |
+| `PUT /notes/:id`    | Edit a note                     | Yes           |
+| `DELETE /notes/:id` | Delete a note                   | Yes           |
 
 ---
 
@@ -502,6 +525,7 @@ All API endpoints follow REST conventions.
 The Dashboard is the first page the user sees after login. It provides a high-level overview of platform activity and quick access to primary actions.
 
 **Hero Section**
+
 - Full-width card with orange-to-cyan gradient background (`#F59E0B → #06B6D4`)
 - Text: `"Welcome back, [Name]! Ready to explore your next big idea?"`
 - Primary action: **Analyze New Idea** → navigates to `/analyzer`
@@ -509,20 +533,22 @@ The Dashboard is the first page the user sees after login. It provides a high-le
 
 **Metrics Cards Row (4 cards)**
 
-| Card | Metric | Icon | Data Source |
-|---|---|---|---|
-| Ideas Analyzed | Count of analyzed ideas | Lightbulb | `COUNT(analysis_results WHERE user_id = me)` |
-| Market Opportunities | Count of opportunities identified | TrendingUp | `SUM(opportunity_score > 70)` |
-| Dataset Insights | Datasets the user has interacted with | Database | `dataset_interaction_count` |
-| Saved Concepts | Ideas saved to workspace | Bookmark | `COUNT(ideas WHERE status != Draft)` |
+| Card                 | Metric                                | Icon       | Data Source                                  |
+| -------------------- | ------------------------------------- | ---------- | -------------------------------------------- |
+| Ideas Analyzed       | Count of analyzed ideas               | Lightbulb  | `COUNT(analysis_results WHERE user_id = me)` |
+| Market Opportunities | Count of opportunities identified     | TrendingUp | `SUM(opportunity_score > 70)`                |
+| Dataset Insights     | Datasets the user has interacted with | Database   | `dataset_interaction_count`                  |
+| Saved Concepts       | Ideas saved to workspace              | Bookmark   | `COUNT(ideas WHERE status != Draft)`         |
 
 **Recent Analysis Table**
+
 - Columns: Project Name | Domain | Novelty Score | Status | Last Updated | Actions
 - Status badge colours: Validated (green) | In Review (amber) | Draft (grey)
 - Default sort: most recently updated first
 - Show max 10 rows with a View All link
 
 **Right Profile Panel**
+
 - Display: user avatar (80×80px circle), name, email, role badge
 - Stats: Ideas Analyzed | Saved Ideas | Activity Streak
 - Project quota progress bar: ideas used / plan limit
@@ -535,16 +561,17 @@ This is the core feature of DIME. A multi-field form that collects structured in
 
 **Form Fields**
 
-| Field | Input Type | Validation |
-|---|---|---|
-| Idea Title | Text input | Required, 5–200 characters |
-| Idea Description | Textarea | Required, 50–2000 characters |
-| Domain / Category | Dropdown select | Required. Options: AI/ML, Web App, Mobile App, SaaS, FinTech, HealthTech, Cybersecurity, Blockchain, Data Science, Education, Marketplace |
-| Tech Stack Familiarity | Toggle button group | Required. Options: Beginner / Intermediate / Advanced |
-| Team Size | Number input with +/− controls | Required. Range: 1–50 |
-| Project Timeline | Range slider | Required. 1–24 months. Show selected value dynamically |
+| Field                  | Input Type                     | Validation                                                                                                                                |
+| ---------------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Idea Title             | Text input                     | Required, 5–200 characters                                                                                                                |
+| Idea Description       | Textarea                       | Required, 50–2000 characters                                                                                                              |
+| Domain / Category      | Dropdown select                | Required. Options: AI/ML, Web App, Mobile App, SaaS, FinTech, HealthTech, Cybersecurity, Blockchain, Data Science, Education, Marketplace |
+| Tech Stack Familiarity | Toggle button group            | Required. Options: Beginner / Intermediate / Advanced                                                                                     |
+| Team Size              | Number input with +/− controls | Required. Range: 1–50                                                                                                                     |
+| Project Timeline       | Range slider                   | Required. 1–24 months. Show selected value dynamically                                                                                    |
 
 **Submission Behaviour**
+
 1. Form validates all fields on submit
 2. Loading state shows spinner inside the **Analyze Idea** button
 3. On success: navigate to `/analysis/:id` with results
@@ -557,6 +584,7 @@ This is the core feature of DIME. A multi-field form that collects structured in
 Displays the full analysis output for a submitted idea. Read-only page with rich visualisations.
 
 **5 Score Cards**
+
 - Novelty Index — large value display with % change vs. average
 - Market Saturation — with level label (Low / Moderate / High / Saturated)
 - Feasibility Score — colour coded (green >70, amber 40–70, red <40)
@@ -565,19 +593,21 @@ Displays the full analysis output for a submitted idea. Read-only page with rich
 
 **Visualisations**
 
-| Chart | Library | Configuration |
-|---|---|---|
-| Market Demand Trend | Recharts LineChart | X-axis: months (Jan–Dec). Y-axis: demand index. Show +18.4% growth annotation |
-| Competitor Density | Recharts BarChart | X-axis: domains (SaaS, FinTech, AI, Health, Education). Y-axis: competitor count |
-| Feasibility Radar | Recharts RadarChart | Axes: Technology, Team, Capital, Legal. Filled area with `#2563EB` |
-| Opportunity Matrix | Chart.js Bubble/Scatter | X: Feasibility, Y: Impact. Bubbles = discovered opportunities. Hover shows label |
+| Chart               | Library                 | Configuration                                                                    |
+| ------------------- | ----------------------- | -------------------------------------------------------------------------------- |
+| Market Demand Trend | Recharts LineChart      | X-axis: months (Jan–Dec). Y-axis: demand index. Show +18.4% growth annotation    |
+| Competitor Density  | Recharts BarChart       | X-axis: domains (SaaS, FinTech, AI, Health, Education). Y-axis: competitor count |
+| Feasibility Radar   | Recharts RadarChart     | Axes: Technology, Team, Capital, Legal. Filled area with `#2563EB`               |
+| Opportunity Matrix  | Chart.js Bubble/Scatter | X: Feasibility, Y: Impact. Bubbles = discovered opportunities. Hover shows label |
 
 **Similarity Meter**
+
 - Horizontal progress bar showing 0–100% similarity with existing projects
 - Below the meter: list of top 3–5 similar projects with name and similarity %
 - Links to GitHub / App Store where available
 
 **Analyst Verdict Panel**
+
 - Full-width card with a text summary generated by the ML service
 - Highlighted key phrases (novelty, risk, opportunity)
 - Action buttons: Save to Workspace | Download PDF Report | Share
@@ -613,14 +643,14 @@ Renders an interactive Opportunity Matrix — a scatter/bubble chart where each 
 
 Allows users to browse and preview the datasets used to power DIME's analysis.
 
-| Dataset | Records (est.) | Description |
-|---|---|---|
-| GitHub Repositories | ~500K repos | Repository names, descriptions, star counts, topics, language |
-| App Store Reviews (iOS) | ~1M reviews | App name, category, review text, rating, date |
-| Google Play Reviews | ~1M reviews | Same structure as App Store Reviews |
-| Developer Survey 2023 | ~90K responses | Stack Overflow annual survey — tech preferences, salaries, roles |
-| Market Trend Index | ~50K data points | Monthly search trend scores per technology domain |
-| Product Hunt Launches | ~30K launches | Product name, category, upvotes, tagline, launch date |
+| Dataset                 | Records (est.)   | Description                                                      |
+| ----------------------- | ---------------- | ---------------------------------------------------------------- |
+| GitHub Repositories     | ~500K repos      | Repository names, descriptions, star counts, topics, language    |
+| App Store Reviews (iOS) | ~1M reviews      | App name, category, review text, rating, date                    |
+| Google Play Reviews     | ~1M reviews      | Same structure as App Store Reviews                              |
+| Developer Survey 2023   | ~90K responses   | Stack Overflow annual survey — tech preferences, salaries, roles |
+| Market Trend Index      | ~50K data points | Monthly search trend scores per technology domain                |
+| Product Hunt Launches   | ~30K launches    | Product name, category, upvotes, tagline, launch date            |
 
 Each dataset card shows: name, description, record count, last updated date, a Preview button. Preview opens a modal with the first 20 rows in a paginated table.
 
@@ -633,7 +663,7 @@ A Kanban-style board for managing all of the user's ideas across different stage
 - Idea cards displayed in columns: **Draft** | **In Review** | **Validated**
 - Each card shows: status badge, title, domain tag, description snippet (max 100 chars), progress bar, last updated timestamp
 - Click a card → expands to full idea detail with analysis scores and task list
-- Drag-and-drop to move cards between status columns *(optional for MVP)*
+- Drag-and-drop to move cards between status columns _(optional for MVP)_
 - **New Idea** button: dashed placeholder card that opens the Idea Analyzer
 - **Global progress panel (right):** shows completion % for Market Analysis, Financial Modelling, Risk Assessment across all ideas
 - **Next Steps panel:** task checklist auto-generated from analysis
@@ -659,18 +689,19 @@ A sticky-note board for capturing quick thoughts, linked or unlinked to specific
 Profile management page with editable user information and platform statistics.
 
 **Profile Header**
+
 - Large circular avatar (120×120px) — click to upload new image
 - Name (editable inline), Professional Title, Short bio
 - Buttons: Edit Profile | View Public Profile
 
 **Settings Tabs**
 
-| Tab | Editable Fields |
-|---|---|
-| Personal Info | Full Name, Email (read-only), Bio, Role, Avatar upload |
+| Tab                 | Editable Fields                                                          |
+| ------------------- | ------------------------------------------------------------------------ |
+| Personal Info       | Full Name, Email (read-only), Bio, Role, Avatar upload                   |
 | Skills & Tech Stack | Skill tags (add/remove chips), Preferred technologies, Areas of interest |
-| Account Security | Change password (current + new + confirm), Enable 2FA (future) |
-| Notifications | Email notification preferences for analysis completion, weekly digest |
+| Account Security    | Change password (current + new + confirm), Enable 2FA (future)           |
+| Notifications       | Email notification preferences for analysis completion, weekly digest    |
 
 ---
 
@@ -680,92 +711,96 @@ All frontend development must adhere to this design system.
 
 ### 7.1 Layout
 
-| Panel | Width | Behaviour |
-|---|---|---|
-| Left Sidebar | 240px fixed | Always visible on desktop. Collapsible on tablet. Drawer on mobile |
-| Main Content Area | Flexible (fills remaining space) | Primary workspace. Scrollable vertically |
-| Right Context Panel | 280px fixed | Shows user profile/stats. Hidden on tablet and mobile |
+| Panel               | Width                            | Behaviour                                                          |
+| ------------------- | -------------------------------- | ------------------------------------------------------------------ |
+| Left Sidebar        | 240px fixed                      | Always visible on desktop. Collapsible on tablet. Drawer on mobile |
+| Main Content Area   | Flexible (fills remaining space) | Primary workspace. Scrollable vertically                           |
+| Right Context Panel | 280px fixed                      | Shows user profile/stats. Hidden on tablet and mobile              |
 
 ### 7.2 Colour Palette
 
-| Token | Hex Value | Usage |
-|---|---|---|
-| Primary / Blue | `#2563EB` | Primary buttons, active nav items, headings |
-| Accent / Teal | `#14B8A6` | Secondary accents, chart fills, badge highlights |
-| Purple | `#7C3AED` | Progress bars, analytics highlights, secondary actions |
-| Orange / Warning | `#F59E0B` | Hero gradient start, warning states, CTA buttons |
-| Success Green | `#22C55E` | Validated status, positive change indicators |
-| Error Red | `#EF4444` | Risk indicators, error states, destructive actions |
-| Background | `#F6F8FB` | Page background |
-| Card Background | `#FFFFFF` | All cards, modals, panels |
-| Sidebar Background | `#FFFFFF` | Left sidebar |
-| Primary Text | `#0F172A` | Main body text |
-| Secondary Text | `#6B7280` | Subtitles, metadata |
-| Muted Text | `#9CA3AF` | Placeholder text, disabled states |
-| Border | `#E2E8F0` | Card borders, dividers, input borders |
+| Token              | Hex Value | Usage                                                  |
+| ------------------ | --------- | ------------------------------------------------------ |
+| Primary / Blue     | `#2563EB` | Primary buttons, active nav items, headings            |
+| Accent / Teal      | `#14B8A6` | Secondary accents, chart fills, badge highlights       |
+| Purple             | `#7C3AED` | Progress bars, analytics highlights, secondary actions |
+| Orange / Warning   | `#F59E0B` | Hero gradient start, warning states, CTA buttons       |
+| Success Green      | `#22C55E` | Validated status, positive change indicators           |
+| Error Red          | `#EF4444` | Risk indicators, error states, destructive actions     |
+| Background         | `#F6F8FB` | Page background                                        |
+| Card Background    | `#FFFFFF` | All cards, modals, panels                              |
+| Sidebar Background | `#FFFFFF` | Left sidebar                                           |
+| Primary Text       | `#0F172A` | Main body text                                         |
+| Secondary Text     | `#6B7280` | Subtitles, metadata                                    |
+| Muted Text         | `#9CA3AF` | Placeholder text, disabled states                      |
+| Border             | `#E2E8F0` | Card borders, dividers, input borders                  |
 
 ### 7.3 Typography
 
-| Role | Size | Weight | Font |
-|---|---|---|---|
-| Page Title | 32px / 2rem | Bold (700) | Inter or Manrope |
-| Section Heading | 22px / 1.375rem | Semi-Bold (600) | Inter or Manrope |
-| Card Title | 16px / 1rem | Medium (500) | Inter or Manrope |
-| Body Text | 14px / 0.875rem | Regular (400) | Inter or Manrope |
-| Metadata / Label | 12px / 0.75rem | Light (300) | Inter or Manrope |
-| Monospace (code) | 13px / 0.8125rem | Regular (400) | JetBrains Mono or Fira Code |
+| Role             | Size             | Weight          | Font                        |
+| ---------------- | ---------------- | --------------- | --------------------------- |
+| Page Title       | 32px / 2rem      | Bold (700)      | Inter or Manrope            |
+| Section Heading  | 22px / 1.375rem  | Semi-Bold (600) | Inter or Manrope            |
+| Card Title       | 16px / 1rem      | Medium (500)    | Inter or Manrope            |
+| Body Text        | 14px / 0.875rem  | Regular (400)   | Inter or Manrope            |
+| Metadata / Label | 12px / 0.75rem   | Light (300)     | Inter or Manrope            |
+| Monospace (code) | 13px / 0.8125rem | Regular (400)   | JetBrains Mono or Fira Code |
 
 ### 7.4 Sidebar Navigation
 
 **Icon Mapping**
 
-| Navigation Item | Lucide Icon |
-|---|---|
-| Dashboard | `LayoutDashboard` |
-| Idea Analyzer | `Lightbulb` |
-| Market Insights | `BarChart2` |
-| Opportunity Engine | `Target` |
-| Dataset Explorer | `Database` |
-| Idea Workspace | `Kanban` |
-| Notes | `StickyNote` |
-| Settings | `Settings` |
-| Help | `HelpCircle` |
-| Logout | `LogOut` |
+| Navigation Item    | Lucide Icon       |
+| ------------------ | ----------------- |
+| Dashboard          | `LayoutDashboard` |
+| Idea Analyzer      | `Lightbulb`       |
+| Market Insights    | `BarChart2`       |
+| Opportunity Engine | `Target`          |
+| Dataset Explorer   | `Database`        |
+| Idea Workspace     | `Kanban`          |
+| Notes              | `StickyNote`      |
+| Settings           | `Settings`        |
+| Help               | `HelpCircle`      |
+| Logout             | `LogOut`          |
 
 **Active / Hover States**
+
 - Active: light blue background (`#EFF6FF`), left border accent (3px, `#2563EB`), text colour `#2563EB`
 - Hover: background `#F1F5F9`, smooth 150ms transition
 
 ### 7.5 Component Specifications
 
 **Metric Card**
+
 - White card (`#FFFFFF`), 1px border (`#E2E8F0`), 8px border-radius, 4px shadow
 - Contents: icon (top-left, 24px), large value (32px bold), label (12px muted), change indicator (12px, green or red with arrow)
 
 **Status Badge**
 
-| Status | Background | Text |
-|---|---|---|
-| Validated | `#DCFCE7` | `#16A34A` |
-| In Review | `#FEF3C7` | `#D97706` |
-| Draft | `#F3F4F6` | `#6B7280` |
+| Status    | Background | Text      |
+| --------- | ---------- | --------- |
+| Validated | `#DCFCE7`  | `#16A34A` |
+| In Review | `#FEF3C7`  | `#D97706` |
+| Draft     | `#F3F4F6`  | `#6B7280` |
 
 **Primary Button**
+
 - Background `#2563EB`, white text, 8px radius, 16px horizontal padding
 - Hover: `#1D4ED8`, 200ms transition
 - Disabled: opacity 0.5, `cursor: not-allowed`
 
 **Input Fields**
+
 - Border: 1px `#E2E8F0`, focus: 2px `#2563EB` ring, 8px radius
 - Label above input, always visible (never placeholder-only)
 
 ### 7.6 Responsive Behaviour
 
-| Breakpoint | Behaviour |
-|---|---|
-| Desktop (≥1280px) | Full sidebar + main content + right panel |
-| Tablet (768px–1279px) | Sidebar collapses to icons. Right panel hidden |
-| Mobile (<768px) | Sidebar becomes a drawer. Charts stack vertically |
+| Breakpoint            | Behaviour                                         |
+| --------------------- | ------------------------------------------------- |
+| Desktop (≥1280px)     | Full sidebar + main content + right panel         |
+| Tablet (768px–1279px) | Sidebar collapses to icons. Right panel hidden    |
+| Mobile (<768px)       | Sidebar becomes a drawer. Charts stack vertically |
 
 ---
 
@@ -991,14 +1026,14 @@ dime-ml/
 
 ### 10.1 Dataset Acquisition Sources
 
-| Dataset | Source | Format | Size |
-|---|---|---|---|
-| GitHub Repositories | GitHub REST API / GH Archive | JSON / Parquet | ~500K records |
-| App Store Reviews (iOS) | Kaggle: iOS App Store Reviews | CSV | ~1M records |
-| Google Play Reviews | Kaggle: Google Play Store Apps | CSV | ~1M records |
-| Stack Overflow Survey | stackoverflow.com/research | CSV | ~90K records |
-| Product Hunt Launches | Kaggle: Product Hunt dataset | CSV | ~30K records |
-| Google Trends Data | `pytrends` Python library | JSON | On-demand |
+| Dataset                 | Source                         | Format         | Size          |
+| ----------------------- | ------------------------------ | -------------- | ------------- |
+| GitHub Repositories     | GitHub REST API / GH Archive   | JSON / Parquet | ~500K records |
+| App Store Reviews (iOS) | Kaggle: iOS App Store Reviews  | CSV            | ~1M records   |
+| Google Play Reviews     | Kaggle: Google Play Store Apps | CSV            | ~1M records   |
+| Stack Overflow Survey   | stackoverflow.com/research     | CSV            | ~90K records  |
+| Product Hunt Launches   | Kaggle: Product Hunt dataset   | CSV            | ~30K records  |
+| Google Trends Data      | `pytrends` Python library      | JSON           | On-demand     |
 
 ### 10.2 Preprocessing Pipeline
 
@@ -1064,16 +1099,16 @@ Processing the full datasets at MVP is unnecessary. Use stratified sampling:
 
 ## 11. Non-Functional Requirements
 
-| Requirement | Target | How To Meet It |
-|---|---|---|
-| Dashboard load time | < 2 seconds | Lazy-load charts, use `React.lazy` for routes, cache API responses in Zustand |
-| Analysis computation time | < 10 seconds | Cache results in Redis. Show real-time progress via WebSocket or polling |
-| Chart render performance | 60fps smooth | Use Recharts responsive containers, avoid re-renders with `useMemo` |
-| API response time (non-ML) | < 200ms | PostgreSQL indexes on `user_id`, `idea_id`. Use connection pooling (PgBouncer) |
-| WCAG Accessibility | Level AA | Color contrast ≥ 4.5:1. All inputs labeled. Charts have text alt-summaries |
-| Mobile Responsiveness | 320px–1440px | Tailwind responsive breakpoints. Sidebar collapses at `md`. Charts stack at `sm` |
-| Security | OWASP Top 10 | Helmet.js, rate limiting, JWT expiry 7d, bcrypt rounds 12, CORS strict origin |
-| Code Quality | ESLint + Prettier | Run on pre-commit hook via Husky. TypeScript strict mode enabled |
+| Requirement                | Target            | How To Meet It                                                                   |
+| -------------------------- | ----------------- | -------------------------------------------------------------------------------- |
+| Dashboard load time        | < 2 seconds       | Lazy-load charts, use `React.lazy` for routes, cache API responses in Zustand    |
+| Analysis computation time  | < 10 seconds      | Cache results in Redis. Show real-time progress via WebSocket or polling         |
+| Chart render performance   | 60fps smooth      | Use Recharts responsive containers, avoid re-renders with `useMemo`              |
+| API response time (non-ML) | < 200ms           | PostgreSQL indexes on `user_id`, `idea_id`. Use connection pooling (PgBouncer)   |
+| WCAG Accessibility         | Level AA          | Color contrast ≥ 4.5:1. All inputs labeled. Charts have text alt-summaries       |
+| Mobile Responsiveness      | 320px–1440px      | Tailwind responsive breakpoints. Sidebar collapses at `md`. Charts stack at `sm` |
+| Security                   | OWASP Top 10      | Helmet.js, rate limiting, JWT expiry 7d, bcrypt rounds 12, CORS strict origin    |
+| Code Quality               | ESLint + Prettier | Run on pre-commit hook via Husky. TypeScript strict mode enabled                 |
 
 ---
 
@@ -1263,18 +1298,18 @@ Run with: uvicorn app.main:app --host 0.0.0.0 --port 8000
 
 ## 13. Future Roadmap
 
-| Feature | Priority | Notes |
-|---|---|---|
-| Dark Mode | High | CSS variable system is already designed. Add a toggle that switches root class |
-| Real-Time Dataset Scraping | Medium | Background jobs (Bull + Redis) to scrape GitHub and App Store weekly |
-| AI Analyst Verdict (LLM) | High | Replace static verdict with GPT-4o / Claude API call using structured prompt with analysis scores |
-| Idea Similarity Search | Medium | Vector search using `pgvector` extension on idea descriptions |
-| Team Collaboration | Medium | Share ideas with teammates, comment on analysis results |
-| Hackathon Mode | Low | Time-boxed idea evaluation with a countdown timer and template themes |
-| PDF Report Export | High | Generate PDF from analysis results using `react-pdf` or puppeteer server-side |
-| Email Notifications | Low | Notify users when analysis is complete or weekly insights digest |
-| Mobile App (React Native) | Low | Core dashboard and idea submission form as a companion app |
-| Framer Motion Animations | Medium | Card hover lift, page fade transitions, chart load animations |
+| Feature                    | Priority | Notes                                                                                             |
+| -------------------------- | -------- | ------------------------------------------------------------------------------------------------- |
+| Dark Mode                  | High     | CSS variable system is already designed. Add a toggle that switches root class                    |
+| Real-Time Dataset Scraping | Medium   | Background jobs (Bull + Redis) to scrape GitHub and App Store weekly                              |
+| AI Analyst Verdict (LLM)   | High     | Replace static verdict with GPT-4o / Claude API call using structured prompt with analysis scores |
+| Idea Similarity Search     | Medium   | Vector search using `pgvector` extension on idea descriptions                                     |
+| Team Collaboration         | Medium   | Share ideas with teammates, comment on analysis results                                           |
+| Hackathon Mode             | Low      | Time-boxed idea evaluation with a countdown timer and template themes                             |
+| PDF Report Export          | High     | Generate PDF from analysis results using `react-pdf` or puppeteer server-side                     |
+| Email Notifications        | Low      | Notify users when analysis is complete or weekly insights digest                                  |
+| Mobile App (React Native)  | Low      | Core dashboard and idea submission form as a companion app                                        |
+| Framer Motion Animations   | Medium   | Card hover lift, page fade transitions, chart load animations                                     |
 
 ---
 
@@ -1282,18 +1317,18 @@ Run with: uvicorn app.main:app --host 0.0.0.0 --port 8000
 
 The MVP is considered complete and ready for demonstration when all of the following criteria are met:
 
-| # | Success Criterion | How to Verify |
-|---|---|---|
-| 1 | User can register, login, and access a protected dashboard | Manual test: register → login → dashboard visible |
-| 2 | User can submit an idea via the Analyzer form | Form validates, submits, shows loading state, navigates to results |
-| 3 | System generates all 5 analysis scores for a submitted idea | API returns Novelty, Saturation, Feasibility, Opportunity, Risk scores |
-| 4 | All 4 charts render correctly on Analysis Results page | Line, bar, radar charts visible with correct data |
-| 5 | Dataset Explorer shows all 6 datasets with preview functionality | Cards render, preview modal shows data table |
-| 6 | User can create, edit, delete ideas in the Workspace | Kanban board CRUD operations work without page reload |
-| 7 | Notes system works end-to-end | Create, edit, delete, tag notes — all persist on refresh |
-| 8 | Profile page saves changes | Edit name, bio, skills → save → refresh → changes persisted |
-| 9 | Dashboard load time < 2 seconds | Measure with browser DevTools Network tab (throttle to Fast 3G) |
-| 10 | UI is responsive at 375px (mobile) and 1440px (desktop) | Chrome DevTools responsive view — no overflow, readable text |
+| #   | Success Criterion                                                | How to Verify                                                          |
+| --- | ---------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| 1   | User can register, login, and access a protected dashboard       | Manual test: register → login → dashboard visible                      |
+| 2   | User can submit an idea via the Analyzer form                    | Form validates, submits, shows loading state, navigates to results     |
+| 3   | System generates all 5 analysis scores for a submitted idea      | API returns Novelty, Saturation, Feasibility, Opportunity, Risk scores |
+| 4   | All 4 charts render correctly on Analysis Results page           | Line, bar, radar charts visible with correct data                      |
+| 5   | Dataset Explorer shows all 6 datasets with preview functionality | Cards render, preview modal shows data table                           |
+| 6   | User can create, edit, delete ideas in the Workspace             | Kanban board CRUD operations work without page reload                  |
+| 7   | Notes system works end-to-end                                    | Create, edit, delete, tag notes — all persist on refresh               |
+| 8   | Profile page saves changes                                       | Edit name, bio, skills → save → refresh → changes persisted            |
+| 9   | Dashboard load time < 2 seconds                                  | Measure with browser DevTools Network tab (throttle to Fast 3G)        |
+| 10  | UI is responsive at 375px (mobile) and 1440px (desktop)          | Chrome DevTools responsive view — no overflow, readable text           |
 
 ---
 
@@ -1304,45 +1339,24 @@ The MVP is considered complete and ready for demonstration when all of the follo
 git clone https://github.com/vivekchaurasiya/dime.git
 cd dime
 
-# 2. Frontend
-cd dime-frontend
+# 2. Start DIME app
+cd dime-app
 npm install
-npm run dev         # http://localhost:5173
-
-# 3. Backend
-cd ../dime-backend
-npm install
-cp .env.example .env   # add DATABASE_URL, JWT_SECRET, ML_SERVICE_URL
 npx prisma migrate dev
-npm run dev         # http://localhost:4000
-
-# 4. Python ML Service
-cd ../dime-ml
-pip install -r requirements.txt
-python scripts/preprocess.py    # run once to prepare datasets
-uvicorn app.main:app --reload   # http://localhost:8000
+npm run dev         # http://localhost:3000
 ```
 
 ### Environment Variables
 
-**dime-backend/.env**
-```env
-DATABASE_URL=postgresql://user:password@localhost:5432/dime
-JWT_SECRET=your-super-secret-jwt-key-here
-JWT_EXPIRES_IN=7d
-ML_SERVICE_URL=http://localhost:8000
-REDIS_URL=redis://localhost:6379
-PORT=4000
-NODE_ENV=development
-```
+**dime-app/.env**
 
-**dime-ml/.env**
 ```env
-DATASETS_PATH=./app/datasets
-MODELS_PATH=./app/models
+DATABASE_URL=file:./prisma/dev.db
+NEXTAUTH_SECRET=replace-with-a-strong-secret
+NEXTAUTH_URL=http://localhost:3000
 ```
 
 ---
 
-*DIME – Data-Driven Idea & Market Evaluation Platform*  
-*v1.0 MVP | Owner: Vivek Chaurasiya | Status: Ready for Development*
+_DIME – Data-Driven Idea & Market Evaluation Platform_  
+_v1.0 MVP | Owner: Vivek Chaurasiya | Status: Ready for Development_
