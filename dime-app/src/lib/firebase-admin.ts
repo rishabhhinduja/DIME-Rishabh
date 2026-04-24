@@ -13,9 +13,13 @@ const getRequiredEnv = (key: string) => {
 
 const normalizePrivateKey = (raw: string): string => {
   // Strip surrounding quotes that some env var UIs may add
-  let key = raw.replace(/^["']|["']$/g, "");
+  let key = raw.replace(/^["']|["']$/g, "").trim();
   // Convert literal \n sequences to real newlines
   key = key.replace(/\\n/g, "\n");
+  // Add PEM headers if missing (user pasted raw base64 only)
+  if (!key.includes("-----BEGIN PRIVATE KEY-----")) {
+    key = `-----BEGIN PRIVATE KEY-----\n${key}\n-----END PRIVATE KEY-----\n`;
+  }
   return key;
 };
 
