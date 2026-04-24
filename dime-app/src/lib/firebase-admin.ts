@@ -11,6 +11,14 @@ const getRequiredEnv = (key: string) => {
   return value;
 };
 
+const normalizePrivateKey = (raw: string): string => {
+  // Strip surrounding quotes that some env var UIs may add
+  let key = raw.replace(/^["']|["']$/g, "");
+  // Convert literal \n sequences to real newlines
+  key = key.replace(/\\n/g, "\n");
+  return key;
+};
+
 const getFirebaseAdminApp = () => {
   const existingApp = getApps()[0];
 
@@ -22,7 +30,7 @@ const getFirebaseAdminApp = () => {
     credential: cert({
       projectId: getRequiredEnv("FIREBASE_PROJECT_ID"),
       clientEmail: getRequiredEnv("FIREBASE_CLIENT_EMAIL"),
-      privateKey: getRequiredEnv("FIREBASE_PRIVATE_KEY").replace(/\\n/g, "\n"),
+      privateKey: normalizePrivateKey(getRequiredEnv("FIREBASE_PRIVATE_KEY")),
     }),
   });
 };
